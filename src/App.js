@@ -1,24 +1,19 @@
-import logo from './logo.svg';
+import Dashboard from './components/dashboard';
+import Add_user from "./components/add_user";
+import Edit_user from "./components/Edit_user";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router> 
+    <Switch>
+      <Route path="/" exact component={Dashboard}></Route>
+      <Route path="/add/users" exact component={Add_user} />
+      <Route path="/user/edit/:userId" exact component={Edit_user} />
+      <Route> 404 not found!!</Route>
+    </Switch>
+  </Router>
   );
 }
 
